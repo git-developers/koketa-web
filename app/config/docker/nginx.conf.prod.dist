@@ -1,7 +1,7 @@
 server {
     listen 80;
-    root /shoes-erp/web/;
-    server_name shoes-erp.com;
+    root /koketa/web/;
+    server_name koketa-erp.com;
 
     location / {
         try_files $uri /app.php$is_args$args;
