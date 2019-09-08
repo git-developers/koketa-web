@@ -65,6 +65,36 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
      * })
      */
     protected $id;
+	
+	/**
+	 * @var string
+	 *
+	 * @JMSS\Groups({
+	 *     "crud",
+	 *     "login"
+	 * })
+	 */
+	private $code;
+	
+	/**
+	 * @var float
+	 *
+	 * @JMSS\Groups({
+	 *     "crud",
+	 *     "login"
+	 * })
+	 */
+	private $creditLine;
+	
+	/**
+	 * @var float
+	 *
+	 * @JMSS\Groups({
+	 *     "crud",
+	 *     "login"
+	 * })
+	 */
+	private $balance;
 
     /**
      * @var string
@@ -382,7 +412,22 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
     {
         return $this->id;
     }
-
+	
+	/**
+	 * @return string
+	 */
+	public function getCode() //: string
+	{
+		return $this->code;
+	}
+	
+	/**
+	 * @param string $code
+	 */
+	public function setCode(string $code): void
+	{
+		$this->code = $code;
+	}
 
     /**
      * Set slug
@@ -1046,6 +1091,38 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
 	public function setFiles(array $files) //: void
 	{
 		$this->files = $files;
+	}
+	
+	/**
+	 * @return float
+	 */
+	public function getBalance() //: float
+	{
+		return $this->balance;
+	}
+	
+	/**
+	 * @param float $balance
+	 */
+	public function setBalance(float $balance): void
+	{
+		$this->balance = $balance;
+	}
+	
+	/**
+	 * @return float
+	 */
+	public function getCreditLine() //: float
+	{
+		return $this->creditLine;
+	}
+	
+	/**
+	 * @param float $creditLine
+	 */
+	public function setCreditLine(float $creditLine): void
+	{
+		$this->creditLine = $creditLine;
 	}
 	
 

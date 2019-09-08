@@ -20,7 +20,7 @@ api_user_index:
 
 api_user_login:
     path: /login
-    methods: [GET, POST]
+    methods: [POST]
     defaults:
         _controller: tianos.api.controller.user:loginAction
         _tianos:

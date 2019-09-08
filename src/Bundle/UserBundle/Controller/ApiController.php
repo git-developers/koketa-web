@@ -24,8 +24,7 @@ class ApiController extends BaseController
 
     public function loginAction(Request $request): Response
     {
-
-        $this->contentTypeValidation($request);
+	    $this->contentTypeValidation($request);
 
         $parameters = [
             'driver' => ResourceBundle::DRIVER_DOCTRINE_ORM,
@@ -41,6 +40,7 @@ class ApiController extends BaseController
 
         //REPOSITORY
         $data = json_decode($request->getContent());
+        
         $object = $this->get($repository)->$method($data);
 
         if(is_null($object)){

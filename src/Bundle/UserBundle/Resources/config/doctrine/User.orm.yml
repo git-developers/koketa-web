@@ -28,6 +28,28 @@ Bundle\UserBundle\Entity\User:
             generator:
                 strategy: IDENTITY
     fields:
+        code:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        creditLine:
+            type: float
+            nullable: true
+            precision: 8
+            scale: 2
+            options:
+                fixed: false
+            column: credit_line
+        balance:
+            type: float
+            nullable: true
+            precision: 8
+            scale: 2
+            options:
+                fixed: false
+            column: balance
         slug:
             type: string
             nullable: true

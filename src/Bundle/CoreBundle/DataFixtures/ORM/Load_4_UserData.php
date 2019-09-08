@@ -127,12 +127,16 @@ class Load_4_UserData extends AbstractFixture implements OrderedFixtureInterface
 	     * CLIENT
 	     */
         $entity = new User();
-        $entity->setDni('88889999');
-	    $entity->setRuc('88889999333');
+        $entity->setCode('C20537704528');
+        $entity->setDni('');
+	    $entity->setRuc('20537704528');
+	    $entity->setPhone('999274437');
+	    $entity->setCreditLine(7000.34);
+	    $entity->setBalance(5000.34);
         $entity->setPassword('123');
-        $entity->setName('Steve');
-        $entity->setLastName('Jobs');
-        $entity->setEmail('sjobs@' . $this->applicationUrl);
+        $entity->setName('4EVER UNIFORMS S.A.C');
+        $entity->setLastName('');
+        $entity->setEmail('scasahelena2003@yahoo.com');
         $entity->setProfile($profileClient);
 	    $entity->setPointOfSaleActive($pointOfSale_3);
         $manager->persist($entity);
@@ -142,12 +146,31 @@ class Load_4_UserData extends AbstractFixture implements OrderedFixtureInterface
         $this->addReference('user-5', $entity);
 
         $entity = new User();
-        $entity->setDni('65765757');
-	    $entity->setRuc('65765757444');
+	    $entity->setCode('C20537646579');
+        $entity->setDni('');
+	    $entity->setRuc('20537646579');
+	    $entity->setPhone('999274437');
+	    $entity->setCreditLine(8000.34);
+	    $entity->setBalance(4000.34);
         $entity->setPassword('123');
-        $entity->setName('Roger');
-        $entity->setLastName('Federer');
-        $entity->setEmail('rfederer@' . $this->applicationUrl);
+        $entity->setName('PIMA INVESTMENT SAC');
+        $entity->setLastName('');
+        $entity->setEmail('pimasac@' . $this->applicationUrl);
+        $entity->setProfile($profileClient);
+	    $entity->setPointOfSaleActive($pointOfSale_3);
+        $manager->persist($entity);
+
+        $entity = new User();
+	    $entity->setCode('C20537570815');
+        $entity->setDni('');
+	    $entity->setRuc('20537570815');
+	    $entity->setPhone('2831073');
+	    $entity->setCreditLine(8000.34);
+	    $entity->setBalance(4000.34);
+        $entity->setPassword('123');
+        $entity->setName('DUNAMIS VIP S.R.L.');
+        $entity->setLastName('');
+        $entity->setEmail('jgastelu@koketa.com');
         $entity->setProfile($profileClient);
 	    $entity->setPointOfSaleActive($pointOfSale_3);
         $manager->persist($entity);
