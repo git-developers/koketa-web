@@ -18,7 +18,7 @@ class ApiController extends BaseController
     {
         return $this->json([
             'status' => self::STATUS_ERROR_API,
-            'message' => 'mensaje',
+            'message' => 'all good',
         ]);
     }
 
@@ -69,15 +69,42 @@ class ApiController extends BaseController
         $session->setToken(uniqid("token-", true));
         $session->setUser($object);
         $this->persist($session);
-
-
-
+        
 
         return $this->json([
             'status' => self::STATUS_SUCCESS_API,
-            'message' => 'mensaje',
+            'message' => 'all good',
             'user' => $this->getSerializeDecode($object, $vars->serialize_group_name),
         ]);
     }
+    
+	public function clientAction(Request $request): Response
+	{
+		$this->contentTypeValidation($request);
+		
+		$parameters = [
+			'driver' => ResourceBundle::DRIVER_DOCTRINE_ORM,
+		];
+		$applicationName = $this->container->getParameter('application_name');
+		$this->metadata = new Metadata('tianos', $applicationName, $parameters);
+//        $this->metadata = new Metadata('product', $applicationName, $parameters);
+		
+		$configuration = $this->get('tianos.resource.configuration.factory')->create($this->metadata, $request);
+		$repository = $configuration->getRepositoryService();
+		$method = $configuration->getRepositoryMethod();
+		$vars = $configuration->getVars();
+		
+		//REPOSITORY
+		$data = json_decode($request->getContent());
+		
+		$object = $this->get($repository)->$method();
+		
+		return $this->json([
+			'status' => self::STATUS_SUCCESS_API,
+			'message' => 'all good',
+			'user' => $this->getSerializeDecode($object, $vars->serialize_group_name),
+		]);
+	}
+
 
 }

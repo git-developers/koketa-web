@@ -61,7 +61,8 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
      *     "friends",
      *     "orders",
      *     "sales",
-     *     "pointofsale-has-user"
+     *     "pointofsale-has-user",
+     *     "client"
      * })
      */
     protected $id;
@@ -71,7 +72,8 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
 	 *
 	 * @JMSS\Groups({
 	 *     "crud",
-	 *     "login"
+	 *     "login",
+	 *     "client"
 	 * })
 	 */
 	private $code;
@@ -103,8 +105,10 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
      *     "login",
      *     "crud",
      *     "anonymous_user",
-     *     "friends"
+     *     "friends",
+     *     "client",
      * })
+     *
      * @Assert\Regex(
      *     pattern="/[^a-zA-Z ]+/",
      *     match=false,
@@ -139,7 +143,8 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
      *     "crud",
      *     "one-to-many-right",
      *     "anonymous_user",
-     *     "friends"
+     *     "friends",
+     *     "client"
      * })
      */
     protected $username;
@@ -170,6 +175,10 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
 
     /**
      * @var string
+     *
+     * @JMSS\Groups({
+     *     "client",
+     * })
      *
      * @Assert\Length(
      *      min = 6,
@@ -424,7 +433,7 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
 	/**
 	 * @param string $code
 	 */
-	public function setCode(string $code): void
+	public function setCode(string $code) //: void
 	{
 		$this->code = $code;
 	}
@@ -1104,7 +1113,7 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
 	/**
 	 * @param float $balance
 	 */
-	public function setBalance(float $balance): void
+	public function setBalance(float $balance) //: void
 	{
 		$this->balance = $balance;
 	}
@@ -1120,7 +1129,7 @@ class User extends BaseUser // implements UserInterface, DomainObjectInterface, 
 	/**
 	 * @param float $creditLine
 	 */
-	public function setCreditLine(float $creditLine): void
+	public function setCreditLine(float $creditLine) //: void
 	{
 		$this->creditLine = $creditLine;
 	}
