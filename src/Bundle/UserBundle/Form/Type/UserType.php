@@ -45,6 +45,18 @@ class UserType extends AbstractType
     {
 
         $builder
+	        ->add('username', TextType::class, [
+		        'label' => 'Username',
+		        'required' => false,
+		        'label_attr' => [
+			        'class' => ''
+		        ],
+		        'attr' => [
+			        'class' => 'form-control',
+			        'placeholder' => 'jperez',
+		        ],
+		        'error_bubbling' => true
+	        ])
             ->add('profile', EntityType::class, array(
                 'class' => Profile::class,
                 'query_builder' => function(EntityRepository $er) {

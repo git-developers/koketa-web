@@ -60,15 +60,16 @@ class DoctrineListenerService extends BaseDoctrineListenerService implements Eve
         if ($entity instanceof User) {
 
             $uniqid = uniqid();
+            $username = is_null($entity->getUsername()) ? $uniqid : $entity->getUsername();
             $nameRaw = $entity->getName();
             $name = $this->slugify($nameRaw);
             $name = substr($name, 0, 35);
 
             $entity->setLastName(is_null($entity->getLastName()) ? '' : $entity->getLastName());
             $entity->setCreatedAt($this->setupCreatedAt($entity));
-            $entity->setUsername($uniqid);
-            $entity->setEnabled(true);
-            $entity->setUsernameCanonical($uniqid);
+	        $entity->setEnabled(true);
+	        $entity->setUsername($username);
+            $entity->setUsernameCanonical($username);
             $entity->setHeadline('Soy parte de Tianos!');
             $entity->setAboutMe(is_null($entity->getAboutMe()) ? 'Soy parte de Tianos ERP.' : $entity->getAboutMe());
 	        $entity->setEmail($this->generateEmail($entity));
@@ -94,13 +95,16 @@ class DoctrineListenerService extends BaseDoctrineListenerService implements Eve
         $entity = $args->getEntity();
 
         if ($entity instanceof User){
-
-            $username = $entity->getUsername();
+	
+	        $uniqid = uniqid();
+	        $username = is_null($entity->getUsername()) ? $uniqid : $entity->getUsername();
             $name = $entity->getName();
             $name = $this->slugify($name);
             $name = substr($name, 0, 35);
 
             $entity->setSlug($username . '-' . $name);
+	        $entity->setUsername($username);
+	        $entity->setUsernameCanonical($username);
             $entity->setUpdatedAt($this->dateTime);
 
             return;

@@ -38,6 +38,7 @@ class Load_4_UserData extends AbstractFixture implements OrderedFixtureInterface
         $entity->setPassword('123');
         $entity->setName('Enmanuel');
         $entity->setLastName('Enmanuel');
+        $entity->setUsername('enmanuel');
         $entity->setEmail('enmanuel@' . $this->applicationUrl);
         $entity->setProfile($profileSuperAdmin);
 	    $entity->setPointOfSaleActive($pointOfSale_3);
@@ -51,6 +52,7 @@ class Load_4_UserData extends AbstractFixture implements OrderedFixtureInterface
         $entity->setPassword('123');
         $entity->setName('Wuales');
         $entity->setLastName('Kharivero');
+	    $entity->setUsername('wualeskharivero');
         $entity->setEmail('wualeskharivero@' . $this->applicationUrl);
         $entity->setProfile($profilePdvAdmin);
 	    $entity->setPointOfSaleActive($pointOfSale_4);
@@ -72,6 +74,7 @@ class Load_4_UserData extends AbstractFixture implements OrderedFixtureInterface
         $entity->setPassword('123');
         $entity->setName('Fabiana');
         $entity->setLastName('Salazar');
+	    $entity->setUsername('fabianasalazar');
         $entity->setEmail('fabianasalazar@' . $this->applicationUrl);
         $entity->setProfile($profileEmployee);
 	    $entity->setPointOfSaleActive($pointOfSale_3);
