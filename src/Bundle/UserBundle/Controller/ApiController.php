@@ -24,6 +24,7 @@ class ApiController extends BaseController
 
     public function loginAction(Request $request): Response
     {
+    	
 	    $this->contentTypeValidation($request);
 
         $parameters = [
